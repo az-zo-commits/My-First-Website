@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5efe6">
+  <meta name="description" content="Тёплое место — кофейня для неспешных встреч. Любимый кофе, свежая выпечка и немного времени для себя.">
+  <title>Тёплое место — кофе и маленькие радости</title>
+  <script>
+    try {
+      const savedTheme = localStorage.getItem('coffee-theme');
+      const dark = savedTheme === 'dark' || (savedTheme !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    } catch (_) {}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="#home" aria-label="Тёплое место — на главную"><span class="brand-icon">тм<span>✳</span></span><span>тёплое место<small>КОФЕЙНЯ РЯДОМ</small></span></a>
+    <button class="theme-toggle" type="button" aria-label="Тёмная тема" aria-pressed="false"><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button>
+    <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="navigation"><span></span><span></span></button>
+    <nav id="navigation" aria-label="Основная навигация"><a href="#menu">Наше меню</a><a href="#about">О нас</a><a href="#contacts">Контакты <span>↗</span></a></nav>
+  </header>
+  <main>
+    <section class="hero section-wrap" id="home">
+      <div class="hero-copy"><p class="eyebrow"><span class="dot"></span> ДЛЯ ТЕХ, КТО ЛЮБИТ НЕ СПЕШИТЬ</p><h1>Хороший кофе.<br>Тёплые <em>моменты.</em></h1><p class="intro">Место, где утро пахнет свежим кофе,<br class="desktop-break"> а каждый день становится чуть уютнее.</p><a class="button" href="#menu">Выбрать свой кофе <span>↗</span></a><div class="hero-note"><span class="sun">✳</span><p>Загляните на чашечку.<br><strong>Остаться подольше — тоже можно.</strong></p></div></div>
+      <div class="hero-photo"><img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1400&q=85" alt="Чашка кофе на деревянном столе в мягком свете" fetchpriority="high"><div class="photo-label"><span>маленький ритуал</span><strong>большого дня</strong><i>♡</i></div><div class="round-stamp">СВАРЕНО С ЛЮБОВЬЮ<br><span>✳</span><br>КАЖДАЯ ЧАШКА</div></div>
+    </section>
+    <div class="ticker" aria-label="Кофе, выпечка и уют"><span>кофе как объятие</span><b>✳</b><span>свежая выпечка</span><b>✳</b><span>время для себя</span><b>✳</b><span>хорошие разговоры</span><b>✳</b></div>
+    <section class="menu-section section-wrap" id="menu"><div class="section-heading"><div><p class="eyebrow">ВАШ НОВЫЙ ЛЮБИМЫЙ</p><h2>Что будем <em>сегодня?</em></h2></div><p>Классика, к которой хочется возвращаться.<br>И кое-что для нового настроения.</p></div>
+      <div class="filters" role="group" aria-label="Категории меню"><button class="active" data-filter="all" aria-pressed="true">Всё меню <span>06</span></button><button data-filter="coffee" aria-pressed="false">Кофе</button><button data-filter="other" aria-pressed="false">Без кофе</button><button data-filter="bakery" aria-pressed="false">Выпечка</button></div>
+      <div class="menu-grid">
+        <article class="menu-card" data-category="coffee"><div class="card-image"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=80" alt="Ароматный эспрессо в чашке" loading="lazy"><span class="tag">Чистый характер</span></div><div class="card-title"><h3>Эспрессо</h3><span>180 ₽</span></div><p>Насыщенный, яркий, с ореховым послевкусием.</p><small>30 мл</small></article>
+        <article class="menu-card" data-category="coffee"><div class="card-image"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=700&q=80" alt="Капучино с рисунком на молочной пене" loading="lazy"><span class="tag">Любимчик гостей ♡</span></div><div class="card-title"><h3>Капучино</h3><span>260 ₽</span></div><p>Баланс эспрессо, тёплого молока и нежной пены.</p><small>250 мл</small></article>
+        <article class="menu-card" data-category="coffee"><div class="card-image"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80" alt="Молочный кофейный напиток в высоком стакане" loading="lazy"><span class="tag">Нежнее нежного</span></div><div class="card-title"><h3>Ванильный латте</h3><span>310 ₽</span></div><p>Много молока, двойной эспрессо и нотка ванили.</p><small>350 мл</small></article>
+        <article class="menu-card" data-category="other"><div class="card-image"><img src="https://images.unsplash.com/photo-1542990253-0b8be5f5ed0d?auto=format&fit=crop&w=700&q=80" alt="Горячий шоколад с воздушным маршмеллоу" loading="lazy"></div><div class="card-title"><h3>Какао</h3><span>280 ₽</span></div><p>Шоколадное настроение с воздушным маршмеллоу.</p><small>300 мл</small></article>
+        <article class="menu-card" data-category="other"><div class="card-image"><img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80" alt="Свежезаваренный чай" loading="lazy"></div><div class="card-title"><h3>Листовой чай</h3><span>240 ₽</span></div><p>Чёрный с бергамотом или зелёный с жасмином.</p><small>400 мл</small></article>
+        <article class="menu-card" data-category="bakery"><div class="card-image"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80" alt="Золотистые слоёные круассаны" loading="lazy"><span class="tag">Идеальная пара к кофе</span></div><div class="card-title"><h3>Круассан</h3><span>220 ₽</span></div><p>Золотистая корочка и нежные сливочные слои.</p><small>80 г</small></article>
+      </div><p class="menu-footnote">Любой кофе приготовим на растительном молоке · +60 ₽</p>
+    </section>
+    <section class="about section-wrap" id="about"><div class="about-image"><img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1100&q=85" alt="Уютный интерьер кофейни с деревянной мебелью" loading="lazy"><span>У каждого дня есть тёплая сторона.</span></div><div class="about-copy"><p class="eyebrow">ДАВАЙТЕ ЗНАКОМИТЬСЯ</p><h2>Больше, чем<br>просто <em>кофе.</em></h2><p>«Тёплое место» — идея небольшой кофейни по соседству. Здесь можно начать утро без спешки, встретиться с другом или побыть наедине с книгой.</p><p>Мы верим в простые радости: аромат свежемолотого зерна, хруст круассана и разговоры, на которые наконец нашлось время.</p><div class="about-signature">Для кофе. Для встреч. Для вас. <span>♡</span></div></div></section>
+    <section class="contacts section-wrap" id="contacts"><div><p class="eyebrow">БУДЕМ РАДЫ ВСТРЕЧЕ</p><h2>Ваш столик<br>уже <em>ждёт.</em> <span>↗</span></h2><p class="contact-intro">Загляните по пути. Или сделайте нас<br>маленькой целью большой прогулки.</p></div><div class="contact-details"><div><h3>Где нас найти</h3><p>Москва, ул. Кофейная, 12</p><small>Пример адреса — замените на свой</small></div><div><h3>Когда приходить</h3><p>Пн–Пт <span>08:00 — 21:00</span><br>Сб–Вс <span>09:00 — 22:00</span></p></div><div><h3>Будем на связи</h3><p>+7 (000) 123-45-67</p><small>Пример телефона — замените на свой</small></div></div></section>
+  </main>
+  <footer class="footer"><a class="footer-brand" href="#home">тёплое место<span>✳</span></a><p>Кофе заканчивается. Тепло остаётся.</p><small>© <span id="year">2026</span> · Демонстрационный сайт кофейни</small></footer>
+</body>
+</html>
